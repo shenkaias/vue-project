@@ -1,0 +1,10 @@
+border-tb($size, $style, $color)
+  position relative
+  &:after
+    content ''
+    display block
+    position absolute
+    width 100%
+    left: 0
+    bottom 0
+    border-bottom $size $style $color

@@ -1,21 +1,10 @@
 <template>
   <div>
     <v-header></v-header>
-    <nav class="nav">
+    <nav class="nav m-border">
       <router-link to="/goods" class="nav-item">商品</router-link>
       <router-link to="/ratings" class="nav-item">评论</router-link>
       <router-link to="/seller" class="nav-item">商家</router-link>
-      <!--<ul>
-        <li class="nav-item">
-          <router-link to="/goods">商品</router-link>
-        </li>
-        <li class="nav-item">
-        	<router-link to="/ratings">评论</router-link>
-        </li>
-        <li class="nav-item">
-        	<router-link to="/seller">商家</router-link>
-        </li>
-      </ul>-->
     </nav>
     <router-view></router-view>
     <section></section>
@@ -25,6 +14,9 @@
 <script type="text/ecmascript-6">
   import header from 'components/header/header.vue';
   export default {
+    data(){
+
+    },
     components: {
       'v-header': header
     }
@@ -32,13 +24,18 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
+  @import "common/css/mixin.styl";
+
   nav.nav
     display: flex
     width: 100%
     height 40px
-    .nav-item
+    border-tb(1px, solid, rgba(7, 17, 27, .1))
+    & > .nav-item
       flex: 1
       text-align: center
-      line-height 40px
-      color #333
+      line-height: 40px
+      color: rgb(77, 85, 93)
+      &.active
+        color rgb(240, 20, 20)
 </style>
