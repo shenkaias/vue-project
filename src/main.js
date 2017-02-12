@@ -37,6 +37,9 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',
-  components: {App}
+  // render: function (createElement) {
+  // return createElement(App);
+  // },
+  render: createElement => createElement(App)
+  // components: {App}
 });

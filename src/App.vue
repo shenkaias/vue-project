@@ -1,21 +1,33 @@
 <template>
   <div>
-    <v-header></v-header>
+    <v-header :seller="seller"></v-header>
     <nav class="nav m-border">
       <router-link to="/goods" class="nav-item">商品</router-link>
       <router-link to="/ratings" class="nav-item">评论</router-link>
       <router-link to="/seller" class="nav-item">商家</router-link>
     </nav>
     <router-view></router-view>
-    <section></section>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
   import header from 'components/header/header.vue';
+
+  const ERR_OK = 0;
+
   export default {
     data(){
-
+      return {
+        seller: {}
+      };
+    },
+    created(){
+      this.$http.get('/api/seller').then(res => {
+        res = res.body;
+        if (res.errno === ERR_OK) {
+          this.seller = res.data;
+        }
+      });
     },
     components: {
       'v-header': header
