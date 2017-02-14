@@ -13,7 +13,7 @@
         </h5>
       </dd>
       <dd class="header-right">
-        <strong class="supports-num">5个<i class="icon-keyboard_arrow_right"></i></strong>
+        <strong class="supports-num" @click="showMoreSupports">5个<i class="icon-keyboard_arrow_right"></i></strong>
       </dd>
     </dl>
     <div class="header-bulletin">
@@ -21,20 +21,51 @@
       <i class="icon-keyboard_arrow_right"></i>
     </div>
     <div class="header-bg">
-      <img :src="seller.avatar" >
+      <img :src="seller.avatar">
+    </div>
+    <div v-show="isShowMoreSupports" class="header-supports">
+      <dl class="header-supports-detail">
+          <dt class="detail-title">{{ seller.name }}</dt>
+            <v-star :size="48" :score="seller.score"></v-star>
+          <dd class="detail-module">
+            <h3><strong>优惠信息</strong></h3>
+            <ul>
+              <li v-for=""></li>
+            </ul>
+          </dd>
+      </dl>
+      <div class="header-supports-close">
+        <i class="icon-close"></i>
+      </div>
     </div>
   </header>
+
 </template>
 
 <script type="text/ecmascript-6">
+  import star from '../star/star';
+
   export default {
     props: {
       seller: {
         type: Object
       }
     },
+    data(){
+      return {
+        isShowMoreSupports: true
+      };
+    },
     created(){
       this.classMap = ['decrease', 'discount', 'special', 'invoice', 'guarantee'];
+    },
+    methods: {
+      showMoreSupports: function () {
+        this.isShowMoreSupports = true;
+      }
+    },
+    components: {
+      'v-star': star
     }
   };
 </script>
@@ -47,8 +78,8 @@
 
   supportIcon($name)
     backgroundPng("img/" +$name)
-    backgroundSize(12px,12px)
-
+    backgroundSize(12px, 12px)
+    background-repeat no-repeat
   .header
     position relative
     overflow hidden
@@ -59,13 +90,15 @@
       color rgb(255, 255, 255)
       position relative
       z-index 20
+      overflow scroll
+      -webkit-overflow-scrolling touch
 
       .header-left
         width 64px
         height @width
         min-width @width
 
-        img
+        &>img
           width 100%
           border-radius 4px
 
@@ -111,7 +144,7 @@
           display flex
           align-items center
 
-          >.support-icon
+          &>.support-icon
             display block
             width 12px
             height @width
@@ -138,7 +171,7 @@
       .header-right
         display flex
         align-items flex-end
-        >.supports-num
+        &>.supports-num
           display flex
           align-items center
           padding 7px 8px 7px 8px
@@ -150,7 +183,6 @@
           &>i
             margin-left 2px
 
-
     .header-bulletin
       display flex
       align-items center
@@ -158,7 +190,7 @@
       padding 0 12px
       color #fff
       font-size $fontSize
-      background-color rgba(7,17,27,.2)
+      background-color rgba(7, 17, 27, .2)
       position relative
       z-index 20
 
@@ -168,13 +200,12 @@
         width 22px
         height 12px
         backgroundPng("img/bulletin")
-        backgroundSize(@width,@height)
+        backgroundSize(@width, @height)
       &>h4
         flex 1
         font-weight 200
         margin 0 4px
         singleOverflow()
-
 
     .header-bg
       width 100%
@@ -185,6 +216,62 @@
       z-index 10
       &>img
         width 100%
-        filter blur(10px)
-        -webkit-filter blur(10px)
+        filter blur(5px)
+        -webkit-filter blur(5px)
+
+    .header-supports
+      position fixed
+      top 0
+      left 0
+      width 100%
+      height 100%
+      z-index 100
+      background-color rgba(7,17,27,.8)
+      overflow scroll
+      -webkit-overflow-scrolling touch
+
+      &>.header-supports-detail
+        min-height 100%
+        padding 64px 36px
+        color #fff
+        text-align center
+
+        &>.detail-title
+          font-size $fontSize + 4
+          line-height $lineHeight + 4
+          font-weight 700
+          margin-bottom 16px
+
+        &>.detail-module
+          margin 28px 0
+          &>h3
+            font-size $fontSize + 2
+            line-height $lineHeight + 2
+            display flex
+            align-items center
+            margin-bottom 24px
+            &:before,&:after
+              content ""
+              display block
+              flex 1
+              border-top 1px solid #fff
+              opacity .2
+            &>strong
+              margin 0 12px
+          &>ul>li
+            display flex
+            align-items center
+            margin-bottom 12px
+            &:last-child
+              margin-bottom 0
+
+      &>.header-supports-close
+        position relative
+        width 32px
+        height @width
+        margin -64px auto 0
+        &>i
+          opacity .5
+          font-size 32px
+
 </style>

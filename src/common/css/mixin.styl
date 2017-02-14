@@ -13,9 +13,9 @@ backgroundPng($url, device = true)
   @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
     device = false
   if device
-    background (url($url + "@2x.png"))
+    background-image url($url + "@2x.png")
   else
-    background (url($url + "@3x.png"))
+    background-image url($url + "@3x.png")
 
 backgroundSize($width, $height)
   background-size $width $height

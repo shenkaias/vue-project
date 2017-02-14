@@ -10,6 +10,10 @@
     transform: scaleY(0.5);
   }
 }
+.blur {
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+}
 @font-face {
   font-family: 'project-icon';
   src: url("../fonts/project-icon.eot?58ifu3");

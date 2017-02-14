@@ -43,7 +43,7 @@
     width: 100%
     height 40px
     border-tb(1px, solid, rgba(7, 17, 27, .1))
-    & > .nav-item
+    &>.nav-item
       flex: 1
       text-align: center
       line-height: 40px
