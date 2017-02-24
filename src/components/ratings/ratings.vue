@@ -64,8 +64,6 @@
   import star from '../star/star';
   import selectRating from '../selectRating/selectRating';
 
-  import {__ratings__} from 'common/js/ratings';
-
   const ERR_OK = 0;
   const All = 2;
 
@@ -83,22 +81,15 @@
       };
     },
     created(){
-//      this.$http.get('/api/ratings').then((res) => {
-//        res = res.body;
-//        if (res.errno === ERR_OK) {
-//          this.ratings = res.data;
-//          this.$nextTick(() => {
-//            this._initScroll();
-//          });
-//        }
-//      });
-      let _ratings = __ratings__();
-      if (_ratings.errno === ERR_OK) {
-        this.ratings = _ratings.data;
-        this.$nextTick(() => {
-          this._initScroll();
-        });
-      }
+      this.$http.get('/api/ratings').then((res) => {
+        res = res.body;
+        if (res.errno === ERR_OK) {
+          this.ratings = res.data;
+          this.$nextTick(() => {
+            this._initScroll();
+          });
+        }
+      });
     },
     methods: {
       _initScroll(){

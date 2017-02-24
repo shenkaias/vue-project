@@ -254,10 +254,10 @@
             display none
             width 24px
             height 16px
-            line-height @height
+            line-height @height + 2
             text-align center
             border-radius 10px
-            font-size 9px
+            font-size 10px
             font-weight 700
             color #fff
             background-color rgb(240, 20, 20)

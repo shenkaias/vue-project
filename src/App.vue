@@ -16,8 +16,6 @@
   import header from 'components/header/header.vue';
   import {parseURL} from 'common/js/tools';
 
-  import {__seller__} from 'common/js/seller';
-
   const ERR_OK = 0;
 
   export default {
@@ -32,17 +30,13 @@
       };
     },
     created(){
-//      this.$http.get('/api/seller?id=' + this.seller.id).then((res) => { // 根据url参数，获取不同商家数据
-//        res = res.body;
-//        if (res.errno === ERR_OK) {
-//          // this.seller = res.data  这个方式获取数据，无法正确获取id这个属性
-//          this.seller = Object.assign({}, this.seller, res.data); // 第一个参数是合并的对象，第二，三参数是复制进第一个对象里的对象 复制不能复制：继承属性和不可枚举属性 es6语法
-//        }
-//      });
-      let _seller = __seller__();
-      if (_seller.errno === ERR_OK){
-        this.seller = Object.assign({}, this.seller, _seller.data);
-      }
+      this.$http.get('/api/seller?id=' + this.seller.id).then((res) => { // 根据url参数，获取不同商家数据
+        res = res.body;
+        if (res.errno === ERR_OK) {
+          // this.seller = res.data  这个方式获取数据，无法正确获取id这个属性
+          this.seller = Object.assign({}, this.seller, res.data); // 第一个参数是合并的对象，第二，三参数是复制进第一个对象里的对象 复制不能复制：继承属性和不可枚举属性 es6语法
+        }
+      });
     },
     components: {
       'v-header': header

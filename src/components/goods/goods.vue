@@ -51,8 +51,6 @@
   import goodsControl from '../goodsControl/goodsControl';
   import goodsDetails from '../goodsDetails/goodsDetails';
 
-  import {__goods__} from 'common/js/goods.js'; // 服务器上获取不了json 用jsonp方式替代
-
   const ERR_OK = 0;
 
   export default{
@@ -101,24 +99,16 @@
       }
     },
     created() {
-//      this.$http.get('/api/goods').then((res) => {
-//        res = res.body;
-//        if (res.errno === ERR_OK) {
-//          this.goods = res.data;
-//          this.$nextTick(() => {
-//            this._initBScroll();
-//            this._calculatedHeight();
-//          });
-//        }
-//      });
-      let _goods = __goods__();
-      if (_goods.errno === ERR_OK) {
-        this.goods = _goods.data;
-        this.$nextTick(() => {
-          this._initBScroll();
-          this._calculatedHeight();
-        });
-      }
+      this.$http.get('/api/goods').then((res) => {
+        res = res.body;
+        if (res.errno === ERR_OK) {
+          this.goods = res.data;
+          this.$nextTick(() => {
+            this._initBScroll();
+            this._calculatedHeight();
+          });
+        }
+      });
     },
     methods: {
       sellectFood(food, event){
@@ -144,7 +134,7 @@
         }
         let foods = this.$refs.goodsItem;
         let element = foods[index];
-        this.foodScroll.scrollToElement(element, 100);
+        this.foodScroll.scrollToElement(element, 300);
       },
       _initBScroll(){
         this.menuScroll = new BScroll(this.$refs.menuWrapper, {
@@ -217,12 +207,13 @@
             top 3px
             right -10px
             width 16px
+            height 12px
+            line-height @height + 2
             text-align center
             border-radius 10px
             font-style normal
             font-size 9px
             font-weight 700
-            line-height 12px
             color #fff
             background-color #f01414
             box-shadow 0 4px 8px rgba(0, 0, 0, 0.4)
