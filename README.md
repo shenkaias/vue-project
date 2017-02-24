@@ -1,21 +1,14 @@
 # vue-project
 
-> A Vue.js project
+#### 仿饿了么商家页面的web app，项目演示地址：<http://demo12.ohapp.com/>
 
-## Build Setup
+<img src="Rcode.png" width="220px" height="220px" alt="演示地址">
 
-``` bash
-# install dependencies
-npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+### 项目简介
+##### 1.用vue-cli 搭建项目的开发环境，配合webpack模板，并使用eslint语法规范来开发。
 
-# build for production with minification
-npm run build
+##### 2.结合vue2.0 + vue-router + vue-resource + es6 + stylus预处理器来开发。
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+##### 3.本例是一个单页面应用，使用了vue-router。
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
