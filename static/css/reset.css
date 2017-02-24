@@ -1,9 +1,8 @@
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline}
 *{tap-highlight-color: rgba(0,0,0,0);-webkit-tap-highlight-color: rgba(0,0,0,0);-ms-tap-highlight-color: rgba(0,0,0,0);-webkit-box-sizing: border-box;-moz-box-sizing: border-box;-ms-box-sizing: border-box;box-sizing: border-box;}
 input[type="text"],input[type="password"],input[type="search"],input[type="tel"],input[type="number"],input[type="email"],input[type="url"],input[type="checkbox"],textarea,select{-webkit-appearance:none;}
-body{font-family:"Microsoft Yahei","微软雅黑",Arial,Helvetica,sans-serif,"宋体",SYHT;line-height:1;}
+body{font-family:"PingFang SC","STHei","Microsoft Yahei","微软雅黑",Arial,Helvetica,sans-serif,"宋体",SYHT;line-height:1;}
 body{width: 100%;overflow: hidden}
-body{min-width: 320px;max-width: 500px;margin: 0px auto}
 :focus{outline:1}
 article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary{display:block}
 nav,ul{list-style:none}
@@ -12,3 +11,4 @@ blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}
 a{text-decoration: none;}
 del{text-decoration:line-through}
 input,select{vertical-align:middle;border: none;outline: none;background: none}
+img{display: block;width: 100%}
